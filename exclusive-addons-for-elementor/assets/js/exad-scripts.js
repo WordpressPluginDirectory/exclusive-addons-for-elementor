@@ -457,14 +457,31 @@ var exclusiveImageMagnifier = function($scope, $) {
     var $magnify = $scope.find( '.exad-image-magnify' ).eq(0),
     $large       = $magnify.find( '.exad-magnify-large' ),
     $small       = $magnify.find( '.exad-magnify-small > img' );
+	
+	// Support lazysizes JS library (used by Wordpress plugins like EWWW Image Optimizer)
+	if ( $small.hasClass('lazyload') 
+		&& typeof window.lazySizesConfig !== 'undefined' ) {
+		
+		document.addEventListener('lazyloaded', function(e){
+			
+			exclusiveImageMagnifier( $scope, $ );
+		});
+		
+		return;
+	}
     
-
+    if ( $large.hasClass('exad-image-magnified') ) {
+		
+		return;
+    }
+	
     var native_width  = 0;
     var native_height = 0;
     $large.css("background","url('" + $small.attr("src") + "') no-repeat");
+    $large.addClass('exad-image-magnified');
     
     //Now the mousemove function
-    $magnify.mousemove( function(e){
+    $magnify.on( "mousemove", function( e ) {
         
         if(!native_width && !native_height) {
             var image_object = new Image();
@@ -503,18 +520,37 @@ var exclusiveImageMagnifier = function($scope, $) {
 // image magnifier script ends
 
 
+function eae_isValidHttpUrl(string) {
+  try {
+    const newUrl = new URL(string);
+    return newUrl.protocol === 'http:' || newUrl.protocol === 'https:' || newUrl.protocol === 'mailto:';
+  } catch (err) {
+    return false;
+  }
+}
+
+
 // Container Link JS started
 
-$('body').on('click.onWrapperLink', '[data-exad-element-link]', function() {
+$('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
     var $wrapper = $(this),
         data     = $wrapper.data('exad-element-link'),
         id       = $wrapper.data('id'),
         anchor   = document.createElement('a'),
         anchorReal,
-        timeout;
-
+        timeout,
+		url = data.url;
+		
+	if ( eae_isValidHttpUrl( url ) === false ) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+		
+		return false;
+	}
+	
     anchor.id            = 'exad-link-anything-' + id;
-    anchor.href          = data.url;
+    anchor.href          = url;
     anchor.target        = data.is_external ? '_blank' : '_self';
     anchor.rel           = data.nofollow ? 'nofollow noreferer' : '';
     anchor.style.display = 'none';
