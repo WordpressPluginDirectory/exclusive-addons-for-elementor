@@ -1,13 +1,13 @@
 === Exclusive Addons for Elementor ===
-Contributors: exclusiveaddons, timstrifler, madjennsy, mmaumio, atiquehasan, zabid, fahimahmmed100
-Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
+Contributors: exclusiveaddons, timstrifler, devjenndivilife, mmaumio, atiquehasan, zabid, fahimahmmed100
+Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
-Tested up to: 6.3.1
-Stable tag: 2.6.9.2
+Tested up to: 6.5
+Stable tag: 2.6.9.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
-Exclusive Addons is one of the Best Elementor Addons That Comes With 90+ Elementor Free & Pro Widgets with all the customizations options you ever imagined.
+Exclusive Addons is one of the Best Elementor Addons With 90+ Elementor Free & Pro Widgets with all the customizations options you ever imagined.
 
 == Description ==
 
@@ -21,7 +21,7 @@ An easy to use interface with several customizations and unique essential widget
 
 We have filled all the free elements with every option that you can think of. Still need one, please feel free to reach out. Your requests will always be our priority and we’ll try to bring the most upvoted one first. 
 
-[Check out our Roadmaps]https://exclusiveaddons.com/roadmaps/ 
+[Check out our Roadmaps](https://exclusiveaddons.com/roadmaps/)
 
 [Check out our Demos](https://exclusiveaddons.com/)
 
@@ -273,6 +273,15 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9.4 - 18/04/2024 =
+- Security improvements
+- Link Anything: Improve URL validation
+- Post Duplicator: Improve functionality
+
+= 2.6.9.3 - 05/04/2024 =
+- Full security improvement
+- Link Anything: fix issue on URL validation
+
 = 2.6.9.2 - 07/03/2024 =
 - Improve security in "Post Duplicator" extension
 - Post Duplicator: Support cloning Elementor post
