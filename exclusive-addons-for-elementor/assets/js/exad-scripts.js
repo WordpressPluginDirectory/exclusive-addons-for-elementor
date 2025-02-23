@@ -85,7 +85,8 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 				fadeOut : fadeOut,
 				smartBackspace : smartBackspace,
 				startDelay : startDelay,
-				backDelay : backDelay
+				backDelay : backDelay,
+				contentType: 'null'
 			});
 		}
 	}
@@ -250,6 +251,7 @@ var exclusiveFilterablePost = function( $scope, $ ) {
 
             $container.isotope({
                 filter: '*',
+                layoutMode: 'fitRows',
                 animationOptions: {
                     queue: true
                 }
